@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+  <h1>Sorry! We couldn't find what you were looking for.</h1><hr>
+  <a href="{{ url_for('index')}}"><button type="button" name="button">Back to Homepage</button></a>
+{% endblock %}

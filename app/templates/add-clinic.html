@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% from "field-macro.html" import displayField %}
+
+{% block title %}Add Clinic{% endblock %}
+
+{% block content %}
+    <h1>Add Clinic</h1>
+    <form action="{{ url_for('add_clinic') }}" method="post">
+          <div>
+              {{ form.name.label }}<br>
+              {{ displayField(form.name , placeholder="Full Name", autocomplete="off", autofocus="True") }}<br>
+              {{ form.specialty.label }}<br>
+              {{ displayField(form.specialty, placeholder='Ex:Surgeon') }}<br>
+              {{ form.clinic_name.label }}<br>
+              {{ displayField(form.clinic_name, placeholder="Enter clinic's name here...") }}<br>
+              {{ form.phone.label }}<br>
+              {{ displayField(form.phone, placeholder="Enter clinic's phone number...") }}<br>
+              {{ form.location.label }}<br>
+              {{ displayField(form.location, placeholder="Enter address or landmark")}}<br>
+              {{ form.city.label }}<br>
+              {{ displayField(form.city)}}<br>
+              {{ form.fees.label }}<br>
+              {{ displayField(form.fees , placeholder="Rs..")}}<br>
+          </div>
+          <div>
+            <label for="from">Monday:</label>
+            <select name="from" placeholder="from">
+              <option value="">00:00</option>
+              <option value="">00:00</option>
+              <option value="">00:00</option>
+              <option value="">00:00</option>
+              <option value="">00:00</option>
+            </select>
+          </div>
+          <div>
+              {{ form.submit()}}
+          </div>
+          {{ form.csrf_token }}
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{# Render form fields #}
+{% macro displayField(field) %}
+    <div class="form-group">
+        {{ field(class_='form-control', **kwargs) }}
+        <!-- Error messages -->
+          <div>
+            {% for error in field.errors %}
+                  <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+          </div>
+
+    </div>
+{% endmacro %}

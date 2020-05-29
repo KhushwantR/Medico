@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% from "field-macro.html" import displayField %}
+
+{% block title %}Edit Details{% endblock %}
+
+{% block content %}
+    <h1>Edit Profile Details</h1>
+    <h2>Hi, {{ current_user.firstname }}!</h2>
+
+    <form action="{{ url_for('edit_details') }}" method="post">
+          <div>
+              {{ form.firstname.label }}<br>
+              {{ displayField(form.firstname , autocomplete="off", autofocus="True") }}<br>
+              {{ form.lastname.label }}<br>
+              {{ displayField(form.lastname) }}<br>
+              {{ form.email.label }}<br>
+              {{ displayField(form.email , placeholder="xyz@gmail.com") }}<br>
+              {{ form.phone.label }}<br>
+              {{ displayField(form.phone, placeholder="9876543210") }}<br>
+          </div>
+          <div>
+              {{ form.submit()}}
+          </div>
+          {{ form.csrf_token }}
+    </form>
+
+{% endblock %}

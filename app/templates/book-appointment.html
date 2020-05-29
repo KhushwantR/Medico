@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% from "field-macro.html" import displayField %}
+
+{% block title %}Book Appointment{% endblock %}
+
+{% block content %}
+    <h3>{{ profile.clinic_name }}</h3>
+    <p>{{ profile.name }}<br>{{ profile.specialty }}<br>{{ profile.location }}, {{ profile.city }}<br>{{ profile.phone }}<br>{{ profile.fees }}</p><hr>
+    <h3>Select Date and Time of Appointment</h3><br>
+    <form action="{{ url_for('book_appointment', id=profile.id )}}" method="get">
+      <label for="date">Select Date:  </label>
+      <input type="date" name="date" required><br>
+      <label for="time">Start Time:  </label>
+      <select name="time" required>
+        <option value="00:00">00:00</option>
+        <option value="02:00">02:00</option>
+        <option value="05:00">05:00</option>
+        <option value="11:00">11:00</option>
+      </select><br>
+      <input type="submit" name="confirm" value="Confirm Appointment">
+    </form>
+
+{% endblock %}

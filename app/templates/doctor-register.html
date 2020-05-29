@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% from "field-macro.html" import displayField %}
+
+{% block title %}Customers Register Here{% endblock %}
+
+{% block content %}
+    <h1>Doctor's Registeration</h1>
+    <form action="{{ url_for('doc_register') }}" method="post">
+          <div>
+              {{ form.firstname.label }}<br>
+              {{ displayField(form.firstname , autocomplete="off", autofocus="True") }}<br>
+              {{ form.lastname.label }}<br>
+              {{ displayField(form.lastname) }}<br>
+              {{ form.email.label }}<br>
+              {{ displayField(form.email , placeholder="xyz@example.com") }}<br>
+              {{ form.phone.label }}<br>
+              {{ displayField(form.phone, placeholder="9876543210") }}<br>
+              {{ form.password.label }}<br>
+              {{ displayField(form.password, placeholder="Password")}}<br>
+              {{ form.confirm_pswd.label }}<br>
+              {{ displayField(form.confirm_pswd, placeholder="Retype Password")}}<br>
+          </div>
+          <div>
+              {{ form.submit()}}
+          </div>
+          {{ form.csrf_token }}
+    </form>
+    <hr>
+    <p>Already Registered? <a href="{{url_for('login') }}">Login</a> here...</p>
+{% endblock %}
